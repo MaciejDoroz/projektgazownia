@@ -33,6 +33,7 @@
         android:drawablePadding="20px"
         android:ems="10"
         android:hint="Numer Klienta"
+        android:maxLength="8"
         android:inputType="numberSigned"
         android:minHeight="48dp"
         android:textColorHint="#616161"
