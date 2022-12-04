@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.402" />
 
     <EditText
-        android:id="@+id/haslo"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/bzaloguj"
+        android:id="@+id/buttonlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Zaloguj"

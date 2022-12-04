@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView login =(TextView) findViewById(R.id.login);
-        TextView haslo =(TextView) findViewById(R.id.haslo);
+        TextView password =(TextView) findViewById(R.id.password);
 
-        MaterialButton bzaloguj = (MaterialButton) findViewById((R.id.bzaloguj));
+        MaterialButton buttonzaloguj = (MaterialButton) findViewById((R.id.buttonlogin));
     }
 
 }
