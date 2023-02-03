@@ -13,4 +13,5 @@
     <color name="DeleteBtnClr">#FFB7B3</color>
     <color name="btnTextColor">#505050</color>
     <color name="fragmentBgColor">#80E6F6F7</color>
+    <color name="ic_launcher_background">#AEC9E7</color>
 </resources>

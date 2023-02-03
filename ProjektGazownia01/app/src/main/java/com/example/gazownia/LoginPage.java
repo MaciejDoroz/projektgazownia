@@ -78,31 +78,35 @@ public class LoginPage extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-
-                                try {
-                                    JSONObject jsonObject = new JSONObject(response);
-
-                                    String status = jsonObject.getString("status");
-                                    String message = jsonObject.getString("message");
-
-                                    if (status.equals("success")) {
-                                        loginS = jsonObject.getString("login");
-                                        apiKeyS = jsonObject.getString("apiKey");
-
-                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString("logged", "true");
-                                        editor.putString("login", loginS);
-                                        editor.putString("apiKey", apiKeyS);
-                                        editor.apply();
-
-                                        OpenMainPage();
-                                    } else {
-                                        errorTV.setText(message);
+                                    if(response.equals("com.android.volley.TimeoutError")){
+                                        errorTV.setText("Błąd limitu czasu. Spróbuj ponownie.");
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
+                                    else{
+                                        try {
+                                            JSONObject jsonObject = new JSONObject(response);
 
+                                            String status = jsonObject.getString("status");
+                                            String message = jsonObject.getString("message");
+
+                                            if (status.equals("success")) {
+                                                loginS = jsonObject.getString("login");
+                                                apiKeyS = jsonObject.getString("apiKey");
+
+                                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                editor.putString("logged", "true");
+                                                editor.putString("login", loginS);
+                                                editor.putString("apiKey", apiKeyS);
+                                                editor.apply();
+
+                                                OpenMainPage();
+                                            } else {
+                                                errorTV.setText(message);
+                                            }
+
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
                             }
                         }, new Response.ErrorListener() {
                     @Override
