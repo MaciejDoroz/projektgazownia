@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -98,6 +99,8 @@ public class History extends Fragment {
             OpenLoginPage();
         }
 
+
+
         CheckRole();
         FetchHistoryFromDB();
 
@@ -124,7 +127,7 @@ public class History extends Fragment {
 
     void CheckRole(){
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "https://testsite12345012345.000webhostapp.com/APPCheckRole.php";
+        String url = "https://projektgazownia.000webhostapp.com/APPCheckRole.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -167,7 +170,7 @@ public class History extends Fragment {
     void FetchHistoryFromDB(){
         //historyTV.setText("");
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "https://testsite12345012345.000webhostapp.com/APPfetchhistory.php";
+        String url = "https://projektgazownia.000webhostapp.com/APPfetchhistory.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

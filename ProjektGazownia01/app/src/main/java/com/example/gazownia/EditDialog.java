@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class EditDialog extends AppCompatDialogFragment {
     private EditText entryET;
-    private EditDialogListener listener;
+
 
     String entryid;
     public EditDialog(String entryid){
@@ -65,10 +65,10 @@ public class EditDialog extends AppCompatDialogFragment {
                         //Toast.makeText(view.getContext(), updatedEntry, Toast.LENGTH_SHORT).show();
 
                         //Log.d("#DIALOG",entryid);
-                        listener.applyText(updatedEntry);
+
 
                         RequestQueue queue = Volley.newRequestQueue(view.getContext());
-                        String url = "https://testsite12345012345.000webhostapp.com/APPeditentry.php";
+                        String url = "https://projektgazownia.000webhostapp.com/APPeditentry.php";
 
                         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                                 new Response.Listener<String>() {
@@ -107,18 +107,5 @@ public class EditDialog extends AppCompatDialogFragment {
     }
 
 
-    public interface EditDialogListener{
-    void applyText(String entry);
-    }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        try {
-            listener=(EditDialogListener)context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() +"must implement EditDialogListener");
-        }
-    }
 }

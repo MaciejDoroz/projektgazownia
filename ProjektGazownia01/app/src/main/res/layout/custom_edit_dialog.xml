@@ -9,7 +9,7 @@
         android:id="@+id/editEntryDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Edit entry"
+        android:hint="Wpisz stan"
         android:gravity="center"
         android:ems="10"
         android:inputType="number"

@@ -1,6 +1,7 @@
 package com.example.gazownia;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,6 +41,7 @@ public class LoginPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
@@ -70,7 +72,7 @@ public class LoginPage extends AppCompatActivity {
                 passwordS = String.valueOf(passwordET.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = "https://testsite12345012345.000webhostapp.com/APPlogin.php";
+                String url = "https://projektgazownia.000webhostapp.com/APPlogin.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {

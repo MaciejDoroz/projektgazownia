@@ -61,7 +61,7 @@ public class DeleteDialog extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         RequestQueue queue = Volley.newRequestQueue(view.getContext());
-                        String url = "https://testsite12345012345.000webhostapp.com/APPdeleteentry.php";
+                        String url = "https://projektgazownia.000webhostapp.com/APPdeleteentry.php";
 
                         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                                 new Response.Listener<String>() {

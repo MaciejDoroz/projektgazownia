@@ -52,8 +52,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.nameTV.setText(entries.get(position).getName());
-        holder.surnameTV.setText(entries.get(position).getSurname());
+        holder.nameTV.setText(entries.get(position).getName() +" " + entries.get(position).getSurname());
+
         holder.peselTV.setText(entries.get(position).getPesel());
         holder.adresTV.setText(entries.get(position).getAdres());
         holder.entryTV.setText(entries.get(position).getEntry());
@@ -87,7 +87,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTV= itemView.findViewById(R.id.listName);
-            surnameTV= itemView.findViewById(R.id.listSurname);
+
             peselTV= itemView.findViewById(R.id.listPesel);
             adresTV= itemView.findViewById(R.id.listAdres);
             entryTV= itemView.findViewById(R.id.listEntry);

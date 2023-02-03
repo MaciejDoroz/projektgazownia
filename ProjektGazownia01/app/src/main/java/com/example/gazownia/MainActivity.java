@@ -1,6 +1,7 @@
 package com.example.gazownia;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,10 +13,10 @@ import com.example.gazownia.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity{
 
     ActivityMainBinding binding;
-    String updateEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -36,9 +37,7 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.profile:
                     ReplaceFragment(new Profile(),"profile");
                     break;
-                case R.id.settings:
-                    ReplaceFragment(new Settings(),"settings");
-                    break;
+
 
             }
 
@@ -51,13 +50,12 @@ public class MainActivity extends AppCompatActivity{
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(
-
                 android.R.anim.fade_in,
                 android.R.anim.fade_out
-
         );
         fragmentTransaction.replace(R.id.flMain,fragment,tag);
         fragmentTransaction.commit();
+
     }
 
 

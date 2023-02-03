@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -93,6 +94,7 @@ public class Profile extends Fragment {
             OpenLoginPage();
         }
 
+
         FetchAndSetDataFromDB();
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +117,7 @@ public class Profile extends Fragment {
 
     void FetchAndSetDataFromDB(){
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "https://testsite12345012345.000webhostapp.com/APPfetchprofile.php";
+        String url = "https://projektgazownia.000webhostapp.com/APPfetchprofile.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -155,7 +157,7 @@ public class Profile extends Fragment {
 
     void UpdateData(){
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "https://testsite12345012345.000webhostapp.com/APPupdatedata.php";
+        String url = "https://projektgazownia.000webhostapp.com/APPupdatedata.php";
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -199,7 +201,7 @@ public class Profile extends Fragment {
     void Logout(){
 
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "https://testsite12345012345.000webhostapp.com/APPlogout.php";
+        String url = "https://projektgazownia.000webhostapp.com/APPlogout.php";
 
         Log.d("#REG"," 1 STOP");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -207,8 +209,8 @@ public class Profile extends Fragment {
                     @Override
                     public void onResponse(String response) {
 
-                        if(response.equals("success")){
-
+                        if(response.equals("success") || response.equals("Unauthorised to access")){
+                            //Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("logged", "");
                             editor.putString("login", "");
@@ -219,7 +221,7 @@ public class Profile extends Fragment {
                             OpenLoginPage();
                         }
                         else{
-                            Toast.makeText(globalContext, response.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -242,6 +244,5 @@ public class Profile extends Fragment {
     void OpenLoginPage() {
         Intent intent = new Intent(getActivity(), LoginPage.class);
         startActivity(intent);
-
     }
 }

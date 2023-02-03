@@ -79,7 +79,7 @@ public class AddEntryDialog extends AppCompatDialogFragment {
 
 
                         RequestQueue queue = Volley.newRequestQueue(view.getContext());
-                        String url = "https://testsite12345012345.000webhostapp.com/APPhistory.php";
+                        String url = "https://projektgazownia.000webhostapp.com/APPhistory.php";
 
                         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                                 new Response.Listener<String>() {
