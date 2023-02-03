@@ -1,69 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F4ACC5"
-    android:tag="history"
-    >
-
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    tools:context=".History"
-
-    >
-
-
-
-
-    <EditText
-        android:gravity="center"
-        android:id="@+id/entryET"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="#F1D2D2"
-        android:hint="Enter entry number"
-        android:inputType="number"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/addEntryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="30sp"
-        android:text="Add entry"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entryET" />
-
-
-
-    <EditText
-        android:id="@+id/addPeselET"
-        android:visibility="invisible"
-        android:layout_width="263dp"
-        android:layout_height="wrap_content"
-        android:hint="Add client pesel"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entryET" />
-
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/historyList"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/addPeselET" />
+        android:layout_height="match_parent"
+        android:background="#F4ACC5"
+        android:tag="history"
+
+        tools:context=".History"
+
+        >
+
+
+        <Button
+            android:id="@+id/addEntryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:paddingHorizontal="20dp"
+            android:text="Add entry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="1dp"
+            android:elevation="3dp"
+            />
+
+        <ScrollView
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/historyList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingBottom="150sp"
+
+
+                app:layout_constraintTop_toTopOf ="parent"/>
+
+
+        </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

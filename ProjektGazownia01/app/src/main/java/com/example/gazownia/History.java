@@ -59,6 +59,7 @@ public class History extends Fragment {
     Boolean client = true;
 
 
+
     public History() {
         // Required empty public constructor
     }
@@ -83,8 +84,6 @@ public class History extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_history, container, false);
 
-        entryET = v.findViewById(R.id.entryET);
-        peselET = v.findViewById(R.id.addPeselET);
         //historyTV = v.findViewById(R.id.historyTV);
         addEntry = v.findViewById(R.id.addEntryButton);
         //tv = v.findViewById(R.id.historyTextView);
@@ -106,8 +105,9 @@ public class History extends Fragment {
         addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddEntry();
-
+                String role = client?"client":"admin";
+                String login = sharedPreferences.getString("login","");
+                OpenAddEntryDialog(role,login);
 
             }
         });
@@ -115,6 +115,11 @@ public class History extends Fragment {
 
 
         return v;
+    }
+
+    void OpenAddEntryDialog (String role, String login){
+        AddEntryDialog addEntryDialog = new AddEntryDialog(role,login);
+        addEntryDialog.show(getParentFragmentManager(),"AddEntry");
     }
 
     void CheckRole(){
@@ -131,14 +136,10 @@ public class History extends Fragment {
                             //Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
                             ;
                             client=true;
-                            peselET.setText("");
                         }
                         else if(response.equals("admin")){
                             //Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
-
                             client=false;
-                            peselET.setVisibility(View.VISIBLE);
-
                         }
                         else{
                             Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
@@ -161,48 +162,6 @@ public class History extends Fragment {
         queue.add(stringRequest);
     }
 
-    void AddEntry(){
-        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "https://testsite12345012345.000webhostapp.com/APPhistory.php";
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("#1","STOP 2");
-                        Log.d("#1",response);
-
-                        if(response.equals("success")){
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //FetchHistoryFromDB();
-
-                            ((MainActivity)getActivity()).ReplaceFragment(new History(),"history");
-
-                        }
-                        else{
-                            Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
-                            //Log.d("#1",response);
-                        }
-
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        }) {
-            protected Map<String, String> getParams() {
-                Map<String, String> paramV = new HashMap<>();
-                paramV.put("login", sharedPreferences.getString("login",""));
-                paramV.put("entry", entryET.getText().toString());
-                paramV.put("pesel", peselET.getText().toString());
-                return paramV;
-            }
-        };
-        queue.add(stringRequest);
-    }
 
 
     void FetchHistoryFromDB(){
