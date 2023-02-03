@@ -33,7 +33,7 @@ public class LoginPage extends AppCompatActivity {
     Button registerBtn;
     TextView errorTV;
 
-    String loginS,passwordS,apiKeyS;
+    String loginS, passwordS, apiKeyS;
 
     SharedPreferences sharedPreferences;
 
@@ -43,15 +43,15 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        loginET = (EditText)findViewById(R.id.editTextLogin);
-        passwordET = (EditText)findViewById(R.id.editTextPassword);
+        loginET = (EditText) findViewById(R.id.editTextLogin);
+        passwordET = (EditText) findViewById(R.id.editTextPassword);
         loginBtn = (Button) findViewById(R.id.loginBtn);
         registerBtn = (Button) findViewById(R.id.registerBtn);
-        errorTV = (TextView)findViewById(R.id.loginErrorTV);
+        errorTV = (TextView) findViewById(R.id.loginErrorTV);
 
-        sharedPreferences = getSharedPreferences("Gazownia",MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Gazownia", MODE_PRIVATE);
 
-        if(sharedPreferences.getString("logged","").equals("true")){
+        if (sharedPreferences.getString("logged", "").equals("true")) {
             OpenMainPage();
         }
 
@@ -70,39 +70,32 @@ public class LoginPage extends AppCompatActivity {
                 passwordS = String.valueOf(passwordET.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url ="http://192.168.137.1/gazownia/login.php";
+                String url = "http://192.168.137.1/gazownia/login.php";
 
-                //Log.d("#REG"," 1 STOP");
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                //Log.d("#REG"," 2 STOP");
+
                                 try {
-                                    //Log.d("#REG"," 2a STOP");
-                                    errorTV.setText(response.toString());
                                     JSONObject jsonObject = new JSONObject(response);
 
-                                    //Log.d("#REG"," 2b STOP");
                                     String status = jsonObject.getString("status");
                                     String message = jsonObject.getString("message");
-                                    //Log.d("#REG"," 3 STOP");
-                                    if(status.equals("success")){
+
+                                    if (status.equals("success")) {
                                         loginS = jsonObject.getString("login");
                                         apiKeyS = jsonObject.getString("apiKey");
-                                        //Log.d("#REG"," 4 STOP");
+
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString("logged","true");
-                                        editor.putString("login",loginS);
-                                        editor.putString("apiKey",apiKeyS);
-                                        //Log.d("#REG"," 5 STOP");
+                                        editor.putString("logged", "true");
+                                        editor.putString("login", loginS);
+                                        editor.putString("apiKey", apiKeyS);
                                         editor.apply();
+
                                         OpenMainPage();
-                                    }
-                                    else{
-                                        errorTV.setText(status.toString());
-                                        //String error = jsonObject.getString("message");
-                                        //errorTV.setText(error);
+                                    } else {
+                                        errorTV.setText(message);
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -115,8 +108,8 @@ public class LoginPage extends AppCompatActivity {
 
                         errorTV.setText(error.toString());
                     }
-                }){
-                    protected Map<String, String> getParams(){
+                }) {
+                    protected Map<String, String> getParams() {
                         Map<String, String> paramV = new HashMap<>();
                         paramV.put("login", loginS);
                         paramV.put("password", passwordS);
@@ -127,12 +120,14 @@ public class LoginPage extends AppCompatActivity {
             }
         });
     }
-    void OpenMainPage(){
+
+    void OpenMainPage() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
-    void OpenRegisterPage(){
+
+    void OpenRegisterPage() {
         Intent intent = new Intent(this, Registration.class);
         startActivity(intent);
         finish();
