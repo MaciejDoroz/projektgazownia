@@ -36,21 +36,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     List<Entries> entries;
 
 
-
-
-
     public Adapter(Context ctx, List<Entries> entries){
         this.inflater = LayoutInflater.from(ctx);
         this.entries = entries;
 
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.custom_list_layout,parent,false);
-
 
         return new ViewHolder(view);
     }
@@ -67,64 +62,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    RequestQueue queue = Volley.newRequestQueue(view.getContext());
-                    String url = "https://testsite12345012345.000webhostapp.com/APPdeleteentry.php";
-
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                            new Response.Listener<String>() {
-
-                                @Override
-                                public void onResponse(String response) {
-                                    if(response.equals("success")){
-                                        Toast.makeText(view.getContext(), "Entry Deleted", Toast.LENGTH_SHORT).show();
-                                        ((MainActivity)view.getContext()).ReplaceFragment(new History(),"history");
-                                    }
-                                    else{
-                                        Log.d("#DEL",response);
-                                    }
-                                }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                        }
-                    }) {
-                        protected Map<String, String> getParams() {
-                            Map<String, String> paramV = new HashMap<>();
-                            paramV.put("id", entries.get(holder.getPosition()).getHistoryid());
-                            return paramV;
-                        }
-                    };
-                    queue.add(stringRequest);
-
+                ((MainActivity)view.getContext()).OpenDeleteDialog(entries.get(holder.getPosition()).getHistoryid());
             }
         });
 
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Bundle bundle = new Bundle();
-
-
                 ((MainActivity)view.getContext()).OpenEditDialog(entries.get(holder.getPosition()).getHistoryid());
-
-
             }
         });
-
-
     }
-
-
-
 
     @Override
     public int getItemCount() {
         return entries.size();
     }
-
-
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nameTV, surnameTV, peselTV, adresTV, entryTV, dateTV;
@@ -143,13 +96,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             editBtn = itemView.findViewById(R.id.listEdit);
         }
     }
-
-
-
-
-
-
-
-
 
 }

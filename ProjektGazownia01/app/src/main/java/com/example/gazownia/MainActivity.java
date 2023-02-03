@@ -6,23 +6,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.gazownia.databinding.ActivityMainBinding;
 
-import java.net.NoRouteToHostException;
-import java.util.HashMap;
-import java.util.Map;
-
-public class MainActivity extends AppCompatActivity implements AlertDialog.EditDialogListener{
+public class MainActivity extends AppCompatActivity implements EditDialog.EditDialogListener{
 
     ActivityMainBinding binding;
     String updateEntry;
@@ -71,8 +58,13 @@ public class MainActivity extends AppCompatActivity implements AlertDialog.EditD
 
 
     public void OpenEditDialog(String id){
-        AlertDialog alertDialog = new AlertDialog(id);
-        alertDialog.show(getSupportFragmentManager(),"EditDialog");
+        EditDialog editDialog = new EditDialog(id);
+        editDialog.show(getSupportFragmentManager(),"EditDialog");
+    }
+
+    public void OpenDeleteDialog(String id){
+        DeleteDialog deleteDialog = new DeleteDialog(id);
+        deleteDialog.show(getSupportFragmentManager(),"DeleteDialog");
     }
 
 
