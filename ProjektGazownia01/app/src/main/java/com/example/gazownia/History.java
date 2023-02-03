@@ -1,12 +1,13 @@
 package com.example.gazownia;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +29,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -41,9 +44,15 @@ public class History extends Fragment {
     TextView historyTV;
     Button addEntry;
 
+    RecyclerView recyclerView;
+    List<Entries> entries;
+    Adapter adapter;
+
     SharedPreferences sharedPreferences;
 
     Boolean client = true;
+
+    TextView tv;
 
 
     public History() {
@@ -72,8 +81,12 @@ public class History extends Fragment {
 
         entryET = v.findViewById(R.id.entryET);
         peselET = v.findViewById(R.id.addPeselET);
-        historyTV = v.findViewById(R.id.historyTV);
+        //historyTV = v.findViewById(R.id.historyTV);
         addEntry = v.findViewById(R.id.addEntryButton);
+        tv = v.findViewById(R.id.historyTextView);
+
+        recyclerView = v.findViewById(R.id.historyList);
+        entries = new ArrayList<>();
 
         sharedPreferences = getActivity().getSharedPreferences("Gazownia", Context.MODE_PRIVATE);
 
@@ -83,6 +96,10 @@ public class History extends Fragment {
 
         CheckRole();
         FetchHistoryFromDB();
+
+
+
+
 
         addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,12 +169,13 @@ public class History extends Fragment {
                         Log.d("#1","STOP 2");
 
                         if(response.equals("success")){
+                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                             FetchHistoryFromDB();
                         }
                         else{
                             Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
                             Log.d("#1",response);
-                            historyTV.setText(response);
+                            //historyTV.setText(response);
                         }
 
                     }
@@ -179,7 +197,7 @@ public class History extends Fragment {
     }
 
     void FetchHistoryFromDB(){
-        historyTV.setText("");
+        //historyTV.setText("");
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         String url = "http://192.168.1.184/gazownia/APPfetchhistory.php";
 
@@ -188,26 +206,36 @@ public class History extends Fragment {
 
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray jsonArray = jsonObject.getJSONArray("entry");
-                            for (int i =0; i<jsonArray.length();i++){
-                                JSONObject logs = jsonArray.getJSONObject(i);
 
-                                String name = logs.getString("name");
-                                String surname = logs.getString("surname");
-                                int pesel = logs.getInt("pesel");
-                                String adres = logs.getString("adres");
-                                int entry = logs.getInt("entry");
-                                String date = logs.getString("date");
-                                historyTV.append(name +", "+surname+", "+pesel+", \n"+adres+", \n"+entry+", "+date+"\n\n");
+
+                        try {
+                            JSONObject jsonObject1 = new JSONObject(response);
+                            JSONArray jsonArray = jsonObject1.getJSONArray("entry");
+                            for (int i =0;i<jsonArray.length();i++){
+                                JSONObject entryObject = jsonArray.getJSONObject(i);
+
+                                Entries entry = new Entries();
+                                entry.setName(entryObject.getString("name").toString());
+                                entry.setSurname(entryObject.getString("surname").toString());
+                                entry.setPesel(entryObject.getString("pesel").toString());
+                                entry.setAdres(entryObject.getString("adres").toString());
+                                entry.setEntry(entryObject.getString("entry").toString());
+                                entry.setDate(entryObject.getString("date").toString());
+
+                                entries.add(entry);
                             }
+
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         // Preview of json
                         //historyTV.setText(response);
+
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        adapter = new Adapter(getActivity(),entries);
+                        recyclerView.setAdapter(adapter);
 
                     }
                 }, new Response.ErrorListener() {
