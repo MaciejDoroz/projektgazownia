@@ -2,12 +2,12 @@ package com.example.gazownia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,47 +19,41 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginPage extends AppCompatActivity {
-
-    EditText login;
-    EditText password;
-    Button loginBtn;
+public class Registration extends AppCompatActivity {
     Button registerBtn;
+    Button loginSiteBtn;
+    TextView loginTV, passwordTV;
 
+    String loginS, passwordS;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
+        setContentView(R.layout.activity_registration);
 
-        login = (EditText)findViewById(R.id.editTextLogin);
-        password = (EditText)findViewById(R.id.editTextPassword);
-        loginBtn = (Button) findViewById(R.id.loginBtn);
+        loginTV = (TextView) findViewById(R.id.editTextLoginR);
+        passwordTV = (TextView) findViewById(R.id.editTextPasswordR);
         registerBtn = (Button) findViewById(R.id.registerBtn);
+        loginSiteBtn = (Button) findViewById(R.id.backToLoginBtn);
+
+        loginSiteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenLoginPage();
+            }
+        });
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OpenRegisterPage();
-            }
-        });
-
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //OpenMainPage();
-
-
-
+                
             }
         });
     }
-    void OpenMainPage(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-    void OpenRegisterPage(){
-        Intent intent = new Intent(this, Registration.class);
+
+    void OpenLoginPage(){
+        Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
     }
 }
