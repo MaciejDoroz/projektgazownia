@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/custom_addentry_dialog.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/custom_addentry_dialog.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/custom_list_layout.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/custom_list_layout.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/custom_edit_dialog.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/custom_edit_dialog.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/activity_login_page.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/activity_login_page.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/fragment_history.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/fragment_history.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/fragment_profile.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/activity_main.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.gazownia.app-mergeReleaseResources-28:/layout/activity_registration.xml",
+        "source": "com.example.gazownia.app-main-30:/layout/activity_registration.xml"
+    }
+]

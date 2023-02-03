@@ -1,0 +1,126 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.gazownia"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:5:5-66
+11-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <application
+13-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:7:5-51:19
+14        android:allowBackup="true"
+14-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:9:9-35
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.8.0] C:\Users\Asus\.gradle\caches\transforms-3\28a1708219c3158e49b329d141e5cfff\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+16        android:dataExtractionRules="@xml/data_extraction_rules"
+16-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:10:9-65
+17        android:debuggable="true"
+18        android:fullBackupContent="@xml/backup_rules"
+18-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:11:9-54
+19        android:icon="@mipmap/ic_launcher"
+19-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:12:9-43
+20        android:label="@string/app_name"
+20-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:13:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:14:9-54
+22        android:supportsRtl="true"
+22-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:15:9-35
+23        android:theme="@style/Theme.Gazownia"
+23-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:16:9-46
+24        android:usesCleartextTraffic="true" >
+24-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:8:9-44
+25        <activity
+25-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:18:9-26:20
+26            android:name="com.example.gazownia.Registration"
+26-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:19:13-41
+27            android:configChanges="orientation"
+27-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:21:13-48
+28            android:exported="false"
+28-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:20:13-37
+29            android:screenOrientation="portrait" >
+29-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:22:13-49
+30            <meta-data
+30-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:23:13-25:36
+31                android:name="android.app.lib_name"
+31-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:24:17-52
+32                android:value="" />
+32-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:25:17-33
+33        </activity>
+34        <activity
+34-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:27:9-41:20
+35            android:name="com.example.gazownia.LoginPage"
+35-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:28:13-38
+36            android:configChanges="orientation"
+36-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:30:13-48
+37            android:exported="true"
+37-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:29:13-36
+38            android:screenOrientation="portrait" >
+38-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:31:13-49
+39            <intent-filter>
+39-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:32:13-36:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:33:17-69
+40-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:33:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:35:17-77
+42-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:35:27-74
+43            </intent-filter>
+44
+45            <meta-data
+45-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:23:13-25:36
+46                android:name="android.app.lib_name"
+46-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:24:17-52
+47                android:value="" />
+47-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:25:17-33
+48        </activity>
+49        <activity
+49-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:42:9-50:20
+50            android:name="com.example.gazownia.MainActivity"
+50-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:43:13-41
+51            android:configChanges="orientation"
+51-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:45:13-48
+52            android:exported="false"
+52-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:44:13-37
+53            android:screenOrientation="portrait" >
+53-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:46:13-49
+54            <meta-data
+54-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:23:13-25:36
+55                android:name="android.app.lib_name"
+55-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:24:17-52
+56                android:value="" />
+56-->C:\Users\Asus\Documents\GitHub\ProjektGazownia01\ProjektGazownia01\app\src\main\AndroidManifest.xml:25:17-33
+57        </activity>
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+61            android:authorities="com.example.gazownia.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Asus\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Asus\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Asus\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+69        </provider>
+70    </application>
+71
+72</manifest>
