@@ -57,9 +57,11 @@ public class LoginPage extends AppCompatActivity {
     void OpenMainPage(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
     void OpenRegisterPage(){
         Intent intent = new Intent(this, Registration.class);
         startActivity(intent);
+        finish();
     }
 }
