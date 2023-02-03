@@ -55,7 +55,7 @@ public class Registration extends AppCompatActivity {
                 passwordS = String.valueOf(passwordTV.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url ="http://192.168.137.1/gazownia/register.php";
+                String url ="http://192.168.1.184/gazownia/APPregister.php";
 
                 Log.d("#REG"," 1 STOP");
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

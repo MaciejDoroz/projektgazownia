@@ -21,14 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ReplaceFragment(new Home());
+        ReplaceFragment(new History());
 
         binding.flBottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch(item.getItemId()){
+                /*
                 case R.id.home:
                     ReplaceFragment(new Home());
                     break;
+                 */
                 case R.id.history:
                     ReplaceFragment(new History());
                     break;

@@ -70,7 +70,7 @@ public class LoginPage extends AppCompatActivity {
                 passwordS = String.valueOf(passwordET.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = "http://192.168.137.1/gazownia/login.php";
+                String url = "http://192.168.1.184/gazownia/APPlogin.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {

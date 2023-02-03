@@ -82,7 +82,7 @@ public class Profile extends Fragment {
             @Override
             public void onClick(View view) {
                 RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-                String url = "http://192.168.137.1/gazownia/logout.php";
+                String url = "http://192.168.1.184/gazownia/APPlogout.php";
 
                 Log.d("#REG"," 1 STOP");
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

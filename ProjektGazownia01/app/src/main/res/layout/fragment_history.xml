@@ -7,16 +7,48 @@
     android:background="#F4ACC5"
     tools:context=".History">
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:gravity="center"
+        android:id="@+id/entryET"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#F1D2D2"
+        android:hint="Enter entry number"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addEntryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HISTORY"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="30sp"
+        android:text="Add entry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryET" />
+
+    <TextView
+        android:id="@+id/historyTV"
+        android:layout_width="409dp"
+        android:layout_height="620dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/addEntryButton" />
+
+    <EditText
+        android:id="@+id/addPeselET"
+        android:visibility="invisible"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:hint="Add client pesel"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryET" />
 </androidx.constraintlayout.widget.ConstraintLayout>
