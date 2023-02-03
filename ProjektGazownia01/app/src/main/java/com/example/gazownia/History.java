@@ -179,6 +179,7 @@ public class History extends Fragment {
     }
 
     void FetchHistoryFromDB(){
+        historyTV.setText("");
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         String url = "http://192.168.1.184/gazownia/APPfetchhistory.php";
 
@@ -199,7 +200,7 @@ public class History extends Fragment {
                                 String adres = logs.getString("adres");
                                 int entry = logs.getInt("entry");
                                 String date = logs.getString("date");
-                                historyTV.append(name +", "+surname+", "+pesel+", "+adres+", "+entry+", "+date+"\n\n");
+                                historyTV.append(name +", "+surname+", "+pesel+", \n"+adres+", \n"+entry+", "+date+"\n\n");
                             }
 
                         } catch (JSONException e) {

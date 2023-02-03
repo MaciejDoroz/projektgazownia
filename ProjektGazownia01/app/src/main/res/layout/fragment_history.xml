@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4ACC5"
-    tools:context=".History">
+
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:context=".History"
+
+    >
+
+
+
 
     <EditText
         android:gravity="center"
@@ -15,6 +28,7 @@
         android:layout_marginTop="20dp"
         android:background="#F1D2D2"
         android:hint="Enter entry number"
+        android:inputType="number"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +52,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addEntryButton" />
+        app:layout_constraintTop_toBottomOf="@+id/addEntryButton"
+        android:paddingBottom="30dp"/>
 
     <EditText
         android:id="@+id/addPeselET"
@@ -48,7 +63,8 @@
         android:hint="Add client pesel"
         android:gravity="center"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entryET" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
