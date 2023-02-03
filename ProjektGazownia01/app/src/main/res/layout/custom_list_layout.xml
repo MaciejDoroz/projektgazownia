@@ -102,6 +102,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Delete" />
+
+            <Button
+                android:id="@+id/listEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#8A6E6E"
+                android:text="Edit" />
+
         </TableRow>
     </TableLayout>
 

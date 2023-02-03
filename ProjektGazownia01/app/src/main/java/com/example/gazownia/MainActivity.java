@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,9 +22,10 @@ import java.net.NoRouteToHostException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AlertDialog.EditDialogListener{
 
     ActivityMainBinding binding;
+    String updateEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+    public void OpenEditDialog(String id){
+        AlertDialog alertDialog = new AlertDialog(id);
+        alertDialog.show(getSupportFragmentManager(),"EditDialog");
+    }
+
+
+    @Override
+    public void applyText(String entry) {
+        updateEntry = entry;
+    }
 
 
 

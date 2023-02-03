@@ -1,6 +1,8 @@
 package com.example.gazownia;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,9 +37,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
 
 
+
+
     public Adapter(Context ctx, List<Entries> entries){
         this.inflater = LayoutInflater.from(ctx);
         this.entries = entries;
+
     }
 
 
@@ -86,7 +91,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     }) {
                         protected Map<String, String> getParams() {
                             Map<String, String> paramV = new HashMap<>();
-                            paramV.put("id", String.valueOf(id));
+                            paramV.put("id", entries.get(holder.getPosition()).getHistoryid());
                             return paramV;
                         }
                     };
@@ -94,7 +99,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
             }
         });
+
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle bundle = new Bundle();
+
+
+                ((MainActivity)view.getContext()).OpenEditDialog(entries.get(holder.getPosition()).getHistoryid());
+
+
+            }
+        });
+
+
     }
+
+
 
 
     @Override
@@ -102,9 +124,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return entries.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nameTV, surnameTV, peselTV, adresTV, entryTV, dateTV;
-        Button deleteBtn;
+        Button deleteBtn,editBtn;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -116,8 +140,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             entryTV= itemView.findViewById(R.id.listEntry);
             dateTV= itemView.findViewById(R.id.listDate);
             deleteBtn = itemView.findViewById(R.id.listDelete);
+            editBtn = itemView.findViewById(R.id.listEdit);
         }
     }
+
+
+
 
 
 
