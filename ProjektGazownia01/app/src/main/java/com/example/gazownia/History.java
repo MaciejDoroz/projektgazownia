@@ -102,7 +102,7 @@ public class History extends Fragment {
         CheckRole();
         FetchHistoryFromDB();
 
-        
+
         addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -204,12 +204,6 @@ public class History extends Fragment {
         queue.add(stringRequest);
     }
 
-    void RefreshFragment(){
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flMain,new History());
-        fragmentTransaction.commit();
-    }
 
     void FetchHistoryFromDB(){
         //historyTV.setText("");
@@ -234,6 +228,7 @@ public class History extends Fragment {
                                 entry.setSurname(entryObject.getString("surname").toString());
                                 entry.setPesel(entryObject.getString("pesel").toString());
                                 entry.setAdres(entryObject.getString("adres").toString());
+                                entry.setHistoryid(entryObject.getString("id").toString());
                                 entry.setEntry(entryObject.getString("entry").toString());
                                 entry.setDate(entryObject.getString("date").toString());
 
@@ -268,6 +263,9 @@ public class History extends Fragment {
         };
         queue.add(stringRequest);
 }
+
+
+
 
 
     void OpenLoginPage() {

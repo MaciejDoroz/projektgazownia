@@ -6,10 +6,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.gazownia.databinding.ActivityMainBinding;
 
 import java.net.NoRouteToHostException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.flMain,fragment,tag);
         fragmentTransaction.commit();
     }
+
+
+
+
 
 
 }

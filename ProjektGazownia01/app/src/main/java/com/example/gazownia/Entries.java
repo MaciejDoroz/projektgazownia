@@ -5,18 +5,28 @@ public class Entries {
     private String surname;
     private String pesel;
     private String adres;
+    private String historyid;
     private String entry;
     private String date;
 
     public Entries(){}
 
-    public Entries(String name, String surname, String pesel, String adres, String entry, String date){
+    public Entries(String name, String surname, String pesel, String adres, String historyid,String entry, String date){
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
         this.adres = adres;
+        this.historyid = historyid;
         this.entry = entry;
         this.date = date;
+    }
+
+    public String getHistoryid() {
+        return historyid;
+    }
+
+    public void setHistoryid(String historyid) {
+        this.historyid = historyid;
     }
 
     public String getName() {
