@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ReplaceFragment(new History());
+        ReplaceFragment(new History(),"history");
 
         binding.flBottomNavigationView.setOnItemSelectedListener(item -> {
 
@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
                     break;
                  */
                 case R.id.history:
-                    ReplaceFragment(new History());
+                    ReplaceFragment(new History(),"history");
                     break;
                 case R.id.profile:
-                    ReplaceFragment(new Profile());
+                    ReplaceFragment(new Profile(),"profile");
                     break;
                 case R.id.settings:
-                    ReplaceFragment(new Settings());
+                    ReplaceFragment(new Settings(),"settings");
                     break;
 
             }
@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void ReplaceFragment(Fragment fragment){
+    public void ReplaceFragment(Fragment fragment, String tag){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flMain,fragment);
+        fragmentTransaction.replace(R.id.flMain,fragment,tag);
         fragmentTransaction.commit();
     }
 

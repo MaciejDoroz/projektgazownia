@@ -115,7 +115,7 @@ public class Profile extends Fragment {
 
     void FetchAndSetDataFromDB(){
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "http://192.168.1.184/gazownia/APPfetchprofile.php";
+        String url = "https://testsite12345012345.000webhostapp.com/APPfetchprofile.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -155,14 +155,16 @@ public class Profile extends Fragment {
 
     void UpdateData(){
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "http://192.168.1.184/gazownia/APPupdatedata.php";
+        String url = "https://testsite12345012345.000webhostapp.com/APPupdatedata.php";
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.d("###",response);
                         if(response.equals("success")){
-                            Toast.makeText(getActivity(), "Success!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Data changed successfully!", Toast.LENGTH_SHORT).show();
                             FetchAndSetDataFromDB();
                         }
                         else if(response.equals("fail")){
@@ -197,7 +199,7 @@ public class Profile extends Fragment {
     void Logout(){
 
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        String url = "http://192.168.1.184/gazownia/APPlogout.php";
+        String url = "https://testsite12345012345.000webhostapp.com/APPlogout.php";
 
         Log.d("#REG"," 1 STOP");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

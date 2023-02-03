@@ -41,6 +41,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.dateTV.setText(entries.get(position).getDate());
     }
 
+
+
     @Override
     public int getItemCount() {
         return entries.size();
@@ -60,4 +62,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             dateTV= itemView.findViewById(R.id.listDate);
         }
     }
+
+
 }
