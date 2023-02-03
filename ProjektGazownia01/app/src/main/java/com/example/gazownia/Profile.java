@@ -242,5 +242,6 @@ public class Profile extends Fragment {
     void OpenLoginPage() {
         Intent intent = new Intent(getActivity(), LoginPage.class);
         startActivity(intent);
+
     }
 }

@@ -124,6 +124,7 @@ public class LoginPage extends AppCompatActivity {
     void OpenMainPage() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
 

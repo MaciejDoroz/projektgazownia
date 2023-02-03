@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.example.gazownia.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements EditDialog.EditDialogListener{
+public class MainActivity extends AppCompatActivity{
 
     ActivityMainBinding binding;
     String updateEntry;
@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity implements EditDialog.EditDi
     public void ReplaceFragment(Fragment fragment, String tag){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(
+
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+
+        );
         fragmentTransaction.replace(R.id.flMain,fragment,tag);
         fragmentTransaction.commit();
     }
@@ -67,11 +73,6 @@ public class MainActivity extends AppCompatActivity implements EditDialog.EditDi
         deleteDialog.show(getSupportFragmentManager(),"DeleteDialog");
     }
 
-
-    @Override
-    public void applyText(String entry) {
-        updateEntry = entry;
-    }
 
 
 

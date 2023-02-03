@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.android.volley.Request;
@@ -57,6 +59,7 @@ public class AddEntryDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
+
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.custom_addentry_dialog, null);
@@ -123,6 +126,8 @@ public class AddEntryDialog extends AppCompatDialogFragment {
         entryET = view.findViewById(R.id.dialogEntryET);
         peselET = view.findViewById(R.id.dialogPeselET);
         if(role.equals("client")){peselET.setVisibility(View.GONE);}
+
+
 
         return builder.create();
     }
